@@ -1,10 +1,11 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from profile_project.api.serializers import UserSerializer, GroupSerializer
+from profile_project.api.serializers import UserSerializer, GroupSerializer, ProfileSerializer
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from profile_project.api.models import Profile
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -23,4 +24,27 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows profiles to be viewed or edited.
+    """
+    queryset = Profile.objects.all().order_by('-id')
+    serializer_class = ProfileSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    # def create(self, request):
+    #     pass
+
+    # def retrieve(self, request, pk=None):
+    #     pass
+
+    # def update(self, request, pk=None):
+    #     pass
+
+    # def partial_update(self, request, pk=None):
+    #     pass
+
+    # def destroy(self, request, pk=None):
+    #     pass
 
