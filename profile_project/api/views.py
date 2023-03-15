@@ -2,7 +2,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from profile_project.api.serializers import UserSerializer, GroupSerializer, ProfileSerializer
-from rest_framework_swagger.views import get_swagger_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from profile_project.api.models import Profile
