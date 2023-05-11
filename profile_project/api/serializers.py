@@ -18,4 +18,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Profile
-        fields = ['avatar', 'bio', 'birth_date', 'created_on', 'id', 'name', 'user_id', 'username', 'website']
+        fields = ['avatar', 'bio', 'birth_date', 'created_on', 'id', 'name', 'user_id', 'website']

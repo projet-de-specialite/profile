@@ -6,7 +6,6 @@ from django.urls import reverse
 
 class Profile(models.Model):
     user_id = models.IntegerField()
-    username = models.CharField(unique=True, max_length=255)
     name = models.CharField(max_length=255)
     birth_date = models.CharField(max_length=255)
     bio = models.TextField()
