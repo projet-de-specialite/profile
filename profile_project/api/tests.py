@@ -14,7 +14,6 @@ class ProfileTestCase(APITestCase):
             "id": 1,
             "name": "Mouad",
             "user_id": 1,
-            "username": "mouaddb",
             "website": "mouad.ma"
             }
         )
