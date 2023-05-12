@@ -10,7 +10,7 @@ class Profile(models.Model):
     birth_date = models.CharField(max_length=255)
     bio = models.TextField()
     website = models.CharField(max_length=255)
-    avatar = models.TextField()
+    avatar = models.ImageField(upload_to='images/')
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
