@@ -20,9 +20,3 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         model = Profile
         fields = ['avatar', 'bio', 'birth_date', 'created_on', 'id', 'name', 'user_id', 'website']
 
-    def create(self, validated_data):
-        image = validated_data.pop('avatar')
-        instance = super().create(validated_data)
-        instance.image.save(image.name, image)
-        return instance
-

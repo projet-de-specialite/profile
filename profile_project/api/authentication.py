@@ -24,6 +24,8 @@ class SafeJWTAuthentication(BaseAuthentication):
 
             response = requests.get(settings.AUTH_ENDPOINT, headers={'Authorization': authorization_heaader}).json()
 
+            print(response)
+
         except jwt.ExpiredSignatureError:
             raise exceptions.AuthenticationFailed('access_token expired')
         except IndexError:
