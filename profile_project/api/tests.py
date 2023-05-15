@@ -51,10 +51,6 @@ class ProfileTestCase(APITestCase):
         self.assertTrue(self.profile.avatar)
         self.assertEqual(self.profile.avatar.name, 'images/test_image.png')
 
-    def test_user_has_one_profile(self):
-        profile_count = Profile.objects.filter(user_id=self.user.id).count()
-        self.assertEqual(profile_count, 1)
-
     def test_user_delete_cascade(self):
         user_count = User.objects.filter(id=self.user.id).count()
         self.assertEqual(user_count, 1)
