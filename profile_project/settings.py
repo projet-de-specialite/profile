@@ -155,6 +155,3 @@ REST_FRAMEWORK = {
 AUTH_ENDPOINT = "http://localhost/php/"
 
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
