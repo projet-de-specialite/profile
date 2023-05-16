@@ -2,87 +2,137 @@
 
 ### API Reference
 API endpoint that allows profiles to be viewed or edited.
+![routes](https://github.com/projet-de-specialite/profile/assets/20058851/af13f80f-6149-40f7-b895-d400b222b904)
 
-`` OPTIONS /profiles/ ``
+### Security
+**Basic**  
 
-```
-
-HTTP 200 OK
-Allow: GET, POST, HEAD, OPTIONS
-Content-Type: application/json
-Vary: Accept
-```
-
-```javascript
+|basic|*Basic*|
+|---|---|
 
 
-{
-    "name": "Profile List",
-    "description": "API endpoint that allows profiles to be viewed or edited.",
-    "renders": [
-        "application/json",
-        "text/html"
-    ],
-    "parses": [
-        "application/json",
-        "application/x-www-form-urlencoded",
-        "multipart/form-data"
-    ],
-    "actions": {
-        "POST": {
-            "avatar": {
-                "type": "image upload",
-                "required": true,
-                "read_only": false,
-                "label": "Avatar",
-                "max_length": 100
-            },
-            "bio": {
-                "type": "string",
-                "required": true,
-                "read_only": false,
-                "label": "Bio"
-            },
-            "birth_date": {
-                "type": "string",
-                "required": true,
-                "read_only": false,
-                "label": "Birth date",
-                "max_length": 255
-            },
-            "created_on": {
-                "type": "datetime",
-                "required": false,
-                "read_only": true,
-                "label": "Created on"
-            },
-            "id": {
-                "type": "integer",
-                "required": false,
-                "read_only": true,
-                "label": "ID"
-            },
-            "name": {
-                "type": "string",
-                "required": true,
-                "read_only": false,
-                "label": "Name",
-                "max_length": 255
-            },
-            "user_id": {
-                "type": "integer",
-                "required": true,
-                "read_only": false,
-                "label": "User id"
-            },
-            "website": {
-                "type": "string",
-                "required": true,
-                "read_only": false,
-                "label": "Website",
-                "max_length": 255
-            }
-        }
-    }
-}
-```
+
+### /profiles/
+
+#### GET
+##### Description:
+
+API endpoint that allows profiles to be viewed or edited.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| page | query | A page number within the paginated result set. | No | integer |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 |  | object |
+
+#### POST
+##### Description:
+
+API endpoint that allows profiles to be viewed or edited.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| data | body |  | Yes | [Profile](#Profile) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 201 |  | [Profile](#Profile) |
+
+### /profiles/{id}/
+
+#### GET
+##### Description:
+
+API endpoint that allows profiles to be viewed or edited.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | A unique integer value identifying this profile. | Yes | integer |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 |  | [Profile](#Profile) |
+
+#### PUT
+##### Description:
+
+API endpoint that allows profiles to be viewed or edited.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | A unique integer value identifying this profile. | Yes | integer |
+| data | body |  | Yes | [Profile](#Profile) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 |  | [Profile](#Profile) |
+
+#### PATCH
+##### Description:
+
+API endpoint that allows profiles to be viewed or edited.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | A unique integer value identifying this profile. | Yes | integer |
+| data | body |  | Yes | [Profile](#Profile) |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 |  | [Profile](#Profile) |
+
+#### DELETE
+##### Description:
+
+API endpoint that allows profiles to be viewed or edited.
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | A unique integer value identifying this profile. | Yes | integer |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 |  |
+
+
+### Models
+
+
+#### Profile
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| avatar | string (uri) |  | No |
+| bio | string |  | Yes |
+| birth_date | string |  | Yes |
+| created_on | dateTime |  | No |
+| id | integer |  | No |
+| name | string |  | Yes |
+| user_id | integer |  | Yes |
+| website | string |  | Yes |
