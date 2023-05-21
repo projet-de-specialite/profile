@@ -1,5 +1,26 @@
 # Profile
 
+## ENV Vars
+```bash
+
+IMAGES_PATH="images/"
+DB_NAME="profile"
+DB_USER="user"
+DB_PASSWORD="password"
+DB_HOST="profile-db"
+
+```
+## Running the app
+```bash
+python -m venv env
+source env/bin/activate
+
+pip install -r requirements.txt
+python manage.py migrate
+
+python manage.py runserver
+```
+
 ### API Reference
 API endpoint that allows profiles to be viewed or edited.
 ![routes](https://github.com/projet-de-specialite/profile/assets/20058851/af13f80f-6149-40f7-b895-d400b222b904)

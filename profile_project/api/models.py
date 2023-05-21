@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
 # Create your models here.
+import os
 
 class Profile(models.Model):
     user_id = models.IntegerField()
@@ -10,7 +11,7 @@ class Profile(models.Model):
     birth_date = models.CharField(max_length=255)
     bio = models.TextField()
     website = models.CharField(max_length=255)
-    avatar = models.ImageField(upload_to='images/')
+    avatar = models.ImageField(upload_to=os.environ.get('IMAGES_PATH'))
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
